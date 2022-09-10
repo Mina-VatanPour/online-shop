@@ -1,0 +1,307 @@
+<template>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="
+            navbar navbar-expand-md navbar-light
+            bg-white
+            ai-center
+            px-0
+          ">
+                <!-- Brand -->
+                <div class="row w-100 header ps-sm-5 ps-md-0">
+                    <div class="col-3 col-md-2 ms-4 px-0">
+                        <router-link class="
+                  navbar-brand
+                  d-flex
+                  ai-center
+                  justify-content-end
+                  pt-0
+                  me-2
+                " :to="{ name: 'home' }">
+                            <img :src="require('@/assets/img/logo.png')" class="img-fluid w-50 d-flex" alt="" />
+                        </router-link>
+                    </div>
+                    <!-- Toggler -->
+                    <button class="
+                navbar-toggler
+                collapsed
+                d-sm-flex d-md-none
+                jc-center
+                ai-center
+                col-1
+              " type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon ms-1"></span>
+                    </button>
+
+                    <!-- Collapse -->
+                    <div class="
+                col-md-7
+                d-flex
+                jc-center
+                ai-center
+                mx-4
+              ">
+                        <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+                            <!-- Nav -->
+                            <ul class="navbar-nav mx-auto d-flex ai-center text-dark">
+                                <!-- home -->
+                                <li class="nav-item b-bottom">
+                                    <router-link class="nav-link" :to="{ name: 'home' }">
+                                        <i class="bi bi-house-door me-1"></i>
+                                        خانه
+                                    </router-link>
+                                </li>
+                                <!-- catalog -->
+                                <li class="
+                      nav-item
+                      dropdown
+                      position-static
+                      hovered
+                      mx-2
+                      b-bottom
+                    ">
+                                    <!-- Toggle -->
+                                    <router-link class="nav-link" data-bs-toggle="dropdown" :to="{ name: 'catalog' }"
+                                        aria-expanded="false">
+                                        <i class="bi bi-tags me-1"></i>
+                                        کاتالوگ
+                                    </router-link>
+
+                                    <!-- Menu -->
+                                    <div class="dropdown-menu w-100 bg-light py-0 shadow">
+                                        <!-- Tabs -->
+                                        <div class="mb-2 mb-lg-0">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <!-- Nav -->
+                                                        <nav class="
+                                  nav nav-tabs nav-overflow
+                                  font-md
+                                  border-bottom border-bottom-lg-0
+                                ">
+                                                            <a class="nav-link text-uppercase active"
+                                                                data-bs-toggle="tab" href="#navTab">
+                                                                زنانه
+                                                            </a>
+                                                            <a class="nav-link text-uppercase" data-bs-toggle="tab"
+                                                                href="#navTab">
+                                                                مردانه
+                                                            </a>
+                                                            <a class="nav-link text-uppercase" data-bs-toggle="tab"
+                                                                href="#navTab">
+                                                                بچه گانه
+                                                            </a>
+                                                        </nav>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Tab content read from ../view/catalog/index/clothing/ShowClothing.vue -->
+                                        <div class="card card-lg">
+                                            <div class="card-body">
+                                                <div class="tab-content">
+                                                    <div class="tab-pane fade show active" id="navTab">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <ShowClothing />
+                                                                <ShowShoes />
+                                                                <ShowBags />
+                                                                <ShowCollections />
+                                                                <ShopSweaters />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- store -->
+                                <li class="
+                      nav-item
+                      dropdown
+                      hovered
+                      position-static
+                      mx-2
+                      b-bottom
+                    ">
+                                    <!-- Toggle -->
+                                    <router-link class="nav-link" data-bs-toggle="dropdown" :to="{ name: 'store' }"
+                                        aria-expanded="false">
+                                        <i class="bi bi-shop me-1"></i>
+                                        فروشگاه
+                                    </router-link>
+
+                                    <!-- Menu -->
+                                    <div class="dropdown-menu shadow w-100 py-0">
+                                        <div class="card card-lg">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <ShowShop />
+                                                        <ShowProduct />
+                                                    </div>
+                                                    <div class="col">
+                                                        <ShowSupport />
+                                                        <ShowModals />
+                                                    </div>
+                                                    <div class="col">
+                                                        <ShowAccount />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- pages -->
+                                <li class="nav-item dropdown hovered mx-2 b-bottom">
+                                    <!-- Toggle -->
+                                    <router-link class="nav-link" data-bs-toggle="dropdown" :to="{ name: 'pages' }"
+                                        aria-expanded="false">
+                                        <i class="bi bi-file-break me-1"></i>
+                                        صفحات
+                                    </router-link>
+
+                                    <!-- Menu -->
+                                    <div class="dropdown-menu py-0 shadow">
+                                        <div class="card card-lg">
+                                            <div class="card-body">
+                                                <ShowPages />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- weblog -->
+                                <li class="nav-item b-bottom">
+                                    <router-link class="nav-link" :to="{ name: 'weblog' }">
+                                        <i class="bi bi-layout-text-window me-1"></i>
+                                        وبلاگ
+
+                                    </router-link>
+                                </li>
+                                <!-- document -->
+                                <li class="nav-item b-bottom">
+                                    <router-link class="nav-link" :to="{ name: 'document' }">
+                                        <i class="bi bi-file-earmark-bar-graph me-1"></i>
+                                        داکیومنت ها
+                                    </router-link>
+                                </li>
+                            </ul>
+
+                            <!-- Nav -->
+                        </div>
+                    </div>
+
+                    <div class="
+                col-md-2
+                d-none d-md-flex
+                jc-center
+                ai-center
+                px-0
+              ">
+                        <ul class="navbar-nav flex-row">
+                            <li class="nav-item b-bottom px-sm-1 px-md-0">
+                                <a class="nav-link" data-bs-toggle="offcanvas" href="#modalSearch">
+                                    <i class="bi bi-search"></i>
+                                </a>
+                            </li>
+                            <!-- <ModalSearch /> -->
+
+                            <li class="nav-item ms-lg-n4 b-bottom px-sm-1 px-md-0">
+                                <!-- <router-link class="nav-link" :to="{ name: 'user-account' }">
+                                    <i class="bi bi-person"></i>
+                                </router-link> -->
+                            </li>
+                            <li class="nav-item ms-lg-n4 b-bottom px-sm-1 px-md-0">
+                                <a class="nav-link" href="./account-wishlist.html">
+                                    <i class="bi bi-heart"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item ms-lg-n4 b-bottom px-sm-1 px-md-0">
+                                <a class="nav-link" data-bs-toggle="offcanvas" href="#modalShoppingCart">
+                                    <span data-cart-items="2">
+                                        <i class="bi bi-cart2"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</template>
+  
+  <script>
+// catalog
+import ShowClothing from "@/views/site/catalog/index/clothing/ShowClothing.vue";
+import ShowShoes from "@/views/site/catalog/index/shoes/ShowShoes.vue";
+import ShowBags from "@/views/site/catalog/index/bags/ShowBags.vue";
+import ShowCollections from "@/views/site/catalog/index/collections/ShowCollections.vue";
+import ShopSweaters from "@/views/site/catalog/index/shopsweaters/ShopSweaters.vue";
+// shop
+import ShowShop from "@/views/site/store/index/shop/ShowShop.vue";
+import ShowProduct from "@/views/site/store/index/product/ShowProduct.vue";
+import ShowSupport from "@/views/site/store/index/support/ShowSupport.vue";
+import ShowAccount from "@/views/site/store/index/account/ShowAccount.vue";
+import ShowModals from "@/views/site/store/index/modals/ShowModals.vue";
+import ShowPages from "@/views/site/pages/ShowPages.vue";
+// ModalSearch
+// import ModalSearch from "@/components/site/ModalSearch.vue";
+
+// pages
+export default {
+    name: "HeaderView",
+    components: {
+        // catalog
+        ShowClothing,
+        ShowShoes,
+        ShowBags,
+        ShowCollections,
+        ShopSweaters,
+        // shop
+        ShowShop,
+        ShowProduct,
+        ShowSupport,
+        ShowAccount,
+        ShowModals,
+        ShowPages,
+        // modal
+        // ModalSearch,
+    },
+};
+</script>
+  <!-- Add "scoped" attribute to limit CSS to this component only -->
+  <style lang="scss">
+  // از پوشه نود ماژول خوانده میشود
+  @import "bootstrap/scss/bootstrap.scss";
+  
+  .b-bottom:hover {
+      border-bottom: 1px solid $red;
+  }
+  
+  .list-styled-link:hover {
+      color: $red;
+  }
+  
+  .navbar-light .navbar-nav .nav-link.active,
+  .navbar-light .navbar-nav .show>.nav-link {
+      color: $red;
+      border-bottom: 1px dotted $red;
+  }
+  
+  // داخل فایل sass اعمال نشد
+  $medium: 768px;
+  
+  @media screen and (max-width: $medium) {
+      .header {
+          display: flex;
+          flex-direction: row-reverse;
+          justify-content: space-between;
+      }
+  }
+  </style>
+  
