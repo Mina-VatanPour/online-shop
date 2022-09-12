@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/site/HomeView.vue";
 // Catalog
 import TemplateCatalog from "../views/site/catalog/TemplateCatalog.vue";
@@ -22,20 +22,20 @@ import WeblogView from "../views/site/ShowWeblog.vue";
 import DocumentView from "../views/site/ShowDocument.vue";
 //factor
 import OrderFactor from "../components/OrderFactor.vue";
-//UserAccount
-// import UserAccount from "../views/panel/user/UserAccount.vue";
-// import MyOrders from "../components/panel/user/orders/MyOrders.vue";
-// import OrderDetails from "../components/panel/user/orders/OrderDetails.vue";
-// import OrderFactor from "../components/panel/user/orders/OrderFactor.vue";
-// import MyWidhlist from "../components/panel/user/MyWidhlist.vue";
-// import PersonalInfo from "../components/panel/user/information/PersonalInfo.vue";
-// import EditInfo from "../components/panel/user/information/EditInfo.vue";
-// import AddressesList from "../components/panel/user/address/AddressesList.vue";
-// import NewAddress from "../components/panel/user/address/NewAddress.vue";
-// import EditAddress from "../components/panel/user/address/EditAddress.vue";
-// import UserComments from "../components/panel/user/comments/UserComments.vue";
-// import LayoutAccount from "../components/panel/user/LayoutAccount.vue";
-// import ProductsPage from "../views/site/products/ProductsPage.vue";
+// UserAccount
+import UserAccount from "../views/panels/users/UserAccount.vue";
+import MyOrders from "../views/panels/users/orders/MyOrders.vue";
+import OrderDetails from "../views/panels/users/orders/OrderDetails.vue";
+import MyWidhlist from "../views/panels/users/MyWidhlist.vue";
+import PersonalInfo from "../views/panels/users/information/PersonalInfo.vue";
+import EditInfo from "../views/panels/users/information/EditInfo.vue";
+import AddressesList from "../views/panels/users/address/AddressesList.vue";
+import NewAddress from "../views/panels/users/address/NewAddress.vue";
+import EditAddress from "../views/panels/users/address/EditAddress.vue";
+import UserComments from "../views/panels/users/comments/UserComments.vue";
+import LayoutAccount from "../views/panels/users/LayoutAccount.vue";
+// ProductsPage
+import ProductsPage from "../views/site/products/ProductsPage.vue";
 
 const routes = [
   {
@@ -427,67 +427,68 @@ const routes = [
     name: "document",
     component: DocumentView,
   },
-  // {
-  //   path: "/user-account",
-  //   name: "user-account",
-  //   component: UserAccount,
-  //   children: [
-  //     {
-  //       path: "my-orders",
-  //       name: "my-orders",
-  //       component: MyOrders,
-  //     },
-  //     {
-  //       path: "order-details",
-  //       name: "order-details",
-  //       component: OrderDetails,
-  //     },
-  //     {
-  //       path: "my-widhlist",
-  //       name: "my-widhlist",
-  //       component: MyWidhlist,
-  //     },
-  //     {
-  //       path: "personal-info",
-  //       name: "personal-info",
-  //       component: PersonalInfo,
-  //       children: [
-  //         {
-  //           path: "edit/:param",
-  //           name: "edit-info",
-  //           component: EditInfo
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       path: "addresses-list",
-  //       name: "addresses-list",
-  //       component: AddressesList,
-  //       children :[
-  //         // {
-  //         //   path: "new-address",
-  //         //   name: "new-address",
-  //         //   component: NewAddress,
-  //         // },
-  //         {
-  //           path: "edit/:id",
-  //           name: "edit-address",
-  //           component: EditAddress,
-  //         },
-  //       ]
-  //     },
-  //     {
-  //       path: "user-comments",
-  //       name: "user-comments",
-  //       component: UserComments,
-  //     },
-  //     {
-  //       path: "layout-account",
-  //       name: "layout-account",
-  //       component: LayoutAccount,
-  //     },
-  //   ]
-  // },
+    // user Account
+  {
+    path: "/user-account",
+    name: "user-account",
+    component: UserAccount,
+    children: [
+      {
+        path: "my-orders",
+        name: "my-orders",
+        component: MyOrders,
+      },
+      {
+        path: "order-details",
+        name: "order-details",
+        component: OrderDetails,
+      },
+      {
+        path: "my-widhlist",
+        name: "my-widhlist",
+        component: MyWidhlist,
+      },
+      {
+        path: "personal-info",
+        name: "personal-info",
+        component: PersonalInfo,
+        children: [
+          {
+            path: "edit/:param",
+            name: "edit-info",
+            component: EditInfo
+          }
+        ]
+      },
+      {
+        path: "addresses-list",
+        name: "addresses-list",
+        component: AddressesList,
+        children :[
+          // {
+          //   path: "new-address",
+          //   name: "new-address",
+          //   component: NewAddress,
+          // },
+          {
+            path: "edit/:id",
+            name: "edit-address",
+            component: EditAddress,
+          },
+        ]
+      },
+      {
+        path: "user-comments",
+        name: "user-comments",
+        component: UserComments,
+      },
+      {
+        path: "layout-account",
+        name: "layout-account",
+        component: LayoutAccount,
+      },
+    ]
+  },
   // factor
   {
     path: "/order-factor",

@@ -211,9 +211,9 @@
                             <!-- <ModalSearch /> -->
 
                             <li class="nav-item ms-lg-n4 b-bottom px-sm-1 px-md-0">
-                                <!-- <router-link class="nav-link" :to="{ name: 'user-account' }">
+                                <router-link class="nav-link" :to="{ name: 'user-account' }">
                                     <i class="bi bi-person"></i>
-                                </router-link> -->
+                                </router-link>
                             </li>
                             <li class="nav-item ms-lg-n4 b-bottom px-sm-1 px-md-0">
                                 <a class="nav-link" href="./account-wishlist.html">

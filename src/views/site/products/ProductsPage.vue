@@ -501,11 +501,11 @@
 </template>
 
 <script >
-import HeaderView from "@/components/site/HeaderView.vue";
-import FooterView from "@/components/site/FooterView.vue";
+import HeaderView from "@/components/HeaderView.vue";
+import FooterView from "@/components/FooterView.vue";
 import ModalDetails from "./ModalDetails.vue";
 import FeaturesView from "@/components/FeaturesView.vue";
-import CommentRegisterd from "@/components/panel/user/comments/CommentRegisterd.vue";
+import CommentRegisterd from "@/views/panels/users/comments/CommentRegisterd.vue";
 
 // for slider
 import Flickity from "vue-flickity";
