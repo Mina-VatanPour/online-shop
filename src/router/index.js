@@ -22,6 +22,7 @@ import WeblogView from "../views/site/ShowWeblog.vue";
 import DocumentView from "../views/site/ShowDocument.vue";
 //factor
 import OrderFactor from "../components/OrderFactor.vue";
+import FavoriteProducts from "@/components/FavoriteProducts";
 // UserAccount
 import UserAccount from "../views/panels/users/UserAccount.vue";
 import MyOrders from "../views/panels/users/orders/MyOrders.vue";
@@ -30,8 +31,8 @@ import MyWidhlist from "../views/panels/users/MyWidhlist.vue";
 import PersonalInfo from "../views/panels/users/information/PersonalInfo.vue";
 import EditInfo from "../views/panels/users/information/EditInfo.vue";
 import AddressesList from "../views/panels/users/address/AddressesList.vue";
-import NewAddress from "../views/panels/users/address/NewAddress.vue";
-import EditAddress from "../views/panels/users/address/EditAddress.vue";
+// import NewAddress from "../views/panels/users/address/NewAddress.vue";
+// import EditAddress from "../views/panels/users/address/EditAddress.vue";
 import UserComments from "../views/panels/users/comments/UserComments.vue";
 import LayoutAccount from "../views/panels/users/LayoutAccount.vue";
 // ProductsPage
@@ -470,11 +471,11 @@ const routes = [
           //   name: "new-address",
           //   component: NewAddress,
           // },
-          {
-            path: "edit/:id",
-            name: "edit-address",
-            component: EditAddress,
-          },
+          // {
+          //   path: "edit/:id",
+          //   name: "edit-address",
+          //   component: EditAddress,
+          // },
         ]
       },
       {
@@ -489,11 +490,22 @@ const routes = [
       },
     ]
   },
+  // products
+  {
+    path: "/products-page",
+    name: "products-page",
+    component: ProductsPage,
+  },
   // factor
   {
     path: "/order-factor",
     name: "order-factor",
     component: OrderFactor,
+  },
+  {
+    path: "/favorite-products",
+    name: "favorite-products",
+    component:FavoriteProducts,
   },
   
 ];

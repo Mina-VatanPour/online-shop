@@ -204,11 +204,11 @@
               ">
                         <ul class="navbar-nav flex-row">
                             <li class="nav-item b-bottom px-sm-1 px-md-0">
-                                <a class="nav-link" data-bs-toggle="offcanvas" href="#modalSearch">
+                                <a class="nav-link" data-bs-toggle="offcanvas" href="#search">
                                     <i class="bi bi-search"></i>
                                 </a>
                             </li>
-                            <!-- <ModalSearch /> -->
+                            <SearchModal />
 
                             <li class="nav-item ms-lg-n4 b-bottom px-sm-1 px-md-0">
                                 <router-link class="nav-link" :to="{ name: 'user-account' }">
@@ -216,17 +216,18 @@
                                 </router-link>
                             </li>
                             <li class="nav-item ms-lg-n4 b-bottom px-sm-1 px-md-0">
-                                <a class="nav-link" href="./account-wishlist.html">
+                                <router-link class="nav-link" :to="{name : 'my-widhlist'}">
                                     <i class="bi bi-heart"></i>
-                                </a>
+                                </router-link>
                             </li>
                             <li class="nav-item ms-lg-n4 b-bottom px-sm-1 px-md-0">
-                                <a class="nav-link" data-bs-toggle="offcanvas" href="#modalShoppingCart">
+                                <a class="nav-link" data-bs-toggle="offcanvas" href="#ShoppingCart">
                                     <span data-cart-items="2">
                                         <i class="bi bi-cart2"></i>
                                     </span>
                                 </a>
                             </li>
+                          <CartModal />
                         </ul>
                     </div>
                 </div>
@@ -250,7 +251,10 @@ import ShowAccount from "@/views/site/store/index/account/ShowAccount.vue";
 import ShowModals from "@/views/site/store/index/modals/ShowModals.vue";
 import ShowPages from "@/views/site/pages/ShowPages.vue";
 // ModalSearch
-// import ModalSearch from "@/components/site/ModalSearch.vue";
+ import SearchModal from "@/components/common-modals/SearchModal.vue";
+ // Card Modal
+import CartModal from "@/components/common-modals/CartModal.vue";
+
 
 // pages
 export default {
@@ -270,7 +274,8 @@ export default {
         ShowModals,
         ShowPages,
         // modal
-        // ModalSearch,
+      SearchModal,
+      CartModal,
     },
 };
 </script>

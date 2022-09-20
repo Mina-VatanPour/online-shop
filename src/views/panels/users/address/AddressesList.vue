@@ -11,20 +11,13 @@
         type="button"
         class="btn btn-outline-success font-md"
         data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
+        data-bs-target="#LocationModal"
       >
         ثبت آدرس جدید
         <i class="bi bi-geo-alt-fill"></i>
       </button>
       <!-- Modal -->
-      <NewAddress />
-      <!-- 
-      <router-link :to="{ name: 'new-address' }">
-        <button type="button" class="btn btn-outline-success font-md">
-          ثبت آدرس جدید
-          <i class="bi bi-geo-alt-fill"></i>
-        </button>
-      </router-link> -->
+      <LocationModal />
     </div>
   </div>
   <div
@@ -60,16 +53,25 @@
         class="img-fluid w-50"
       />
       <p class="mt-5">
-        <router-link :to="{ name: 'edit-address', params: { id: address.id } }">
-          <button
+<!--        <router-link :to="{ name: 'edit-address', params: { id: address.id } }">-->
+<!--          <button-->
+<!--            type="button"-->
+<!--            class="btn btn-sm btn-outline-success me-2 font-xs"-->
+<!--          >-->
+<!--            <i class="bi bi-pencil"></i>-->
+<!--            ویرایش-->
+<!--          </button>-->
+<!--        </router-link>-->
+        <button
             type="button"
             class="btn btn-sm btn-outline-success me-2 font-xs"
-          >
-            <i class="bi bi-pencil"></i>
-            ویرایش
-          </button>
-        </router-link>
-        <button type="button" class="btn btn-sm btn-outline-danger font-xs">
+            data-bs-toggle="modal"
+            data-bs-target="#LocationDetailsModal"
+        >
+          <i class="bi bi-pencil"></i>
+          ویرایش
+        </button>
+        <button type="button" @click="deletePost" class="btn btn-sm btn-outline-danger font-xs">
           <i class="bi bi-trash3"></i>
           حذف
         </button>
@@ -80,11 +82,12 @@
 
 <script>
 import { ref } from "@vue/reactivity";
-import NewAddress from "@/views/panels/users/address/NewAddress.vue";
+import LocationModal from "@/components/common-modals/LocationModal";
+import Swal from "sweetalert2";
 export default {
   name: "Addresseslist",
   components: {
-    NewAddress,
+    LocationModal,
   },
   setup() {
     const addressInfo = ref([
@@ -105,13 +108,35 @@ export default {
         resiver: "سجاد نوری",
       },
     ]);
-    return { addressInfo };
+    function deletePost() {
+      Swal.fire({
+        icon: "warning",
+        title: 'آیا برای حذف این آدرس مطمئن هستید؟',
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: 'بله',
+        denyButtonText: `لغو`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          Swal.fire('آدرس با موفقیت حذف شد ', '', 'success')
+        }
+        // else if (result.isDenied) {
+        //   Swal.fire('حذف آدرس کنسل شد !', '', 'info')
+        // }
+      })
+    }
+    return { addressInfo,deletePost };
   },
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .border-dotted {
   border: 2px dotted #ccc;
+}
+.swal2-title {
+  font-size: 1.3rem!important;
+  //font-family: Georgia, serif;
 }
 </style>
